@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
  <title>Day1</title>
  <meta charset="UTF-8">
@@ -83,7 +82,7 @@
           <h3>###</h3>
         </div>
         <div class="w3-clear"></div>
-        <h4>number of surfable spots</h4>
+        <h4>Surfable spots</h4>
       </div>
     </div>
 
@@ -92,10 +91,11 @@
 
 
 
-<h4 style="background-color:Red;">Tides</h1>
-<h4 style="background-color:Blue;">Swell</h1>
+<h4 style="background-color:Red;">Tides</h4>
+<h4 style="background-color:Blue;">Swell</h4>
 <table style="width:100%">
-  <tr>
+  <tbody><tr>
+<td width="150">Tide/Swell</td>
 <td colspan="24"> 
 <canvas id="myChart" style="width:100%;height:30%"></canvas>
 <script>
@@ -123,13 +123,11 @@ new Chart("myChart", {
 });
 </script>
 </td>
-<td colspan="24"> 
-<canvas id="myChart" style="width:100%;height:30%"></canvas>
-</td>
   </tr>
   <tr>
 <!--###To Search and Replace: need to iterate and add in data - need to create a new variable to hold this value###-->
 <!--### Need to add a button to open the day's forecast ###-->
+    <td>Time</td>
     <td>00</td>
     <td>01</td>
     <td>02</td>
@@ -155,8 +153,311 @@ new Chart("myChart", {
     <td>22</td>
     <td>23</td>
   </tr>
-</table>
+  <tr>
+<!--###To Search and Replace: need to iterate and add in data - need to create a new variable to hold this value###-->
+<!--### Need to add a button to open the day's forecast ###-->
+    <td>Tide</td>
+    <td>00</td>
+    <td>01</td>
+    <td>02</td>
+    <td>03</td>
+    <td>04</td>
+    <td>05</td>
+    <td>06</td>
+    <td>07</td>
+    <td>08</td>
+    <td>09</td>
+    <td>10</td>
+    <td>11</td>
+    <td>12</td>
+    <td>13</td>
+    <td>14</td>
+    <td>15</td>
+    <td>16</td>
+    <td>17</td>
+    <td>18</td>
+    <td>19</td>
+    <td>20</td>
+    <td>21</td>
+    <td>22</td>
+    <td>23</td>
+  </tr>
+ <tr>
+<!--###To Search and Replace: need to iterate and add in data - need to create a new variable to hold this value###-->
+<!--### Need to add a button to open the day's forecast ###-->
+    <td>Swell</td>
+    <td>Sw00</td>
+    <td>Sw01</td>
+    <td>Sw02</td>
+    <td>Sw03</td>
+    <td>Sw04</td>
+    <td>Sw05</td>
+    <td>Sw06</td>
+    <td>Sw07</td>
+    <td>Sw08</td>
+    <td>Sw09</td>
+    <td>Sw10</td>
+    <td>Sw11</td>
+    <td>Sw12</td>
+    <td>Sw13</td>
+    <td>Sw14</td>
+    <td>Sw15</td>
+    <td>Sw16</td>
+    <td>Sw17</td>
+    <td>Sw18</td>
+    <td>Sw19</td>
+    <td>Sw20</td>
+    <td>Sw21</td>
+    <td>Sw22</td>
+    <td>Sw23</td>
+  </tr>
+ <tr>
+<!--###To Search and Replace: need to iterate and add in data - need to create a new variable to hold this value###-->
+<!--### Need to add a button to open the day's forecast ###-->
+    <td>Swell Dir</td>
+    <td>SD00</td>
+    <td>SD01</td>
+    <td>SD02</td>
+    <td>SD03</td>
+    <td>SD04</td>
+    <td>SD05</td>
+    <td>SD06</td>
+    <td>SD07</td>
+    <td>SD08</td>
+    <td>SD09</td>
+    <td>SD10</td>
+    <td>SD11</td>
+    <td>SD12</td>
+    <td>SD13</td>
+    <td>SD14</td>
+    <td>SD15</td>
+    <td>SD16</td>
+    <td>SD17</td>
+    <td>SD18</td>
+    <td>SD19</td>
+    <td>SD20</td>
+    <td>SD21</td>
+    <td>SD22</td>
+    <td>SD23</td>
+  </tr>
+ <tr>
+<!--###To Search and Replace: need to iterate and add in data - need to create a new variable to hold this value###-->
+<!--### Need to add a button to open the day's forecast ###-->
+    <td>Swell Period</td>
+    <td>SP00</td>
+    <td>SP01</td>
+    <td>SP02</td>
+    <td>SP03</td>
+    <td>SP04</td>
+    <td>SP05</td>
+    <td>SP06</td>
+    <td>SP07</td>
+    <td>SP08</td>
+    <td>SP09</td>
+    <td>SP10</td>
+    <td>SP11</td>
+    <td>SP12</td>
+    <td>SP13</td>
+    <td>SP14</td>
+    <td>SP15</td>
+    <td>SP16</td>
+    <td>SP17</td>
+    <td>SP18</td>
+    <td>SP19</td>
+    <td>SP20</td>
+    <td>SP21</td>
+    <td>SP22</td>
+    <td>SP23</td>
+  </tr>
+ <tr>
+<!--###To Search and Replace: need to iterate and add in data - need to create a new variable to hold this value###-->
+<!--### Need to add a button to open the day's forecast ###-->
+    <td>Wind Speed</td>
+    <td>WS00</td>
+    <td>WS01</td>
+    <td>WS02</td>
+    <td>WS03</td>
+    <td>WS04</td>
+    <td>WS05</td>
+    <td>WS06</td>
+    <td>WS07</td>
+    <td>WS08</td>
+    <td>WS09</td>
+    <td>WS10</td>
+    <td>WS11</td>
+    <td>WS12</td>
+    <td>WS13</td>
+    <td>WS14</td>
+    <td>WS15</td>
+    <td>WS16</td>
+    <td>WS17</td>
+    <td>WS18</td>
+    <td>WS19</td>
+    <td>WS20</td>
+    <td>WS21</td>
+    <td>WS22</td>
+    <td>WS23</td>
+  </tr>
+ <tr>
+<!--###To Search and Replace: need to iterate and add in data - need to create a new variable to hold this value###-->
+<!--### Need to add a button to open the day's forecast ###-->
+    <td>Wind Dir</td>
+    <td>WD00</td>
+    <td>WD01</td>
+    <td>WD02</td>
+    <td>WD03</td>
+    <td>WD04</td>
+    <td>WD05</td>
+    <td>WD06</td>
+    <td>WD07</td>
+    <td>WD08</td>
+    <td>WD09</td>
+    <td>WD10</td>
+    <td>WD11</td>
+    <td>WD12</td>
+    <td>WD13</td>
+    <td>WD14</td>
+    <td>WD15</td>
+    <td>WD16</td>
+    <td>WD17</td>
+    <td>WD18</td>
+    <td>WD19</td>
+    <td>WD20</td>
+    <td>WD21</td>
+    <td>WD22</td>
+    <td>WD23</td>
+  </tr>
+ <tr>
+<!--###To Search and Replace: need to iterate and add in data - need to create a new variable to hold this value###-->
+<!--### Need to add a button to open the day's forecast ###-->
+    <td>Day/Night</td>
+    <td>DN00</td>
+    <td>DN01</td>
+    <td>DN02</td>
+    <td>DN03</td>
+    <td>DN04</td>
+    <td>DN05</td>
+    <td>DN06</td>
+    <td>DN07</td>
+    <td>DN08</td>
+    <td>DN09</td>
+    <td>DN10</td>
+    <td>DN11</td>
+    <td>DN12</td>
+    <td>DN13</td>
+    <td>DN14</td>
+    <td>DN15</td>
+    <td>DN16</td>
+    <td>DN17</td>
+    <td>DN18</td>
+    <td>DN19</td>
+    <td>DN20</td>
+    <td>DN21</td>
+    <td>DN22</td>
+    <td>DN23</td>
+  </tr>
+ <tr><td colspan="24"></td></tr>
+ <tr>
+<!--###To Search and Replace: need to iterate and add in data - need to create a new variable to hold this value###-->
+<!--### Need to add a button to open the day's forecast ###-->
+    <td>Splash</td>
+    <td>Spla00</td>
+    <td>Spla01</td>
+    <td>Spla02</td>
+    <td>Spla03</td>
+    <td>Spla04</td>
+    <td>Spla05</td>
+    <td>Spla06</td>
+    <td>Spla07</td>
+    <td>Spla08</td>
+    <td>Spla09</td>
+    <td>Spla10</td>
+    <td>Spla11</td>
+    <td>Spla12</td>
+    <td>Spla13</td>
+    <td>Spla14</td>
+    <td>Spla15</td>
+    <td>Spla16</td>
+    <td>Spla17</td>
+    <td>Spla18</td>
+    <td>Spla19</td>
+    <td>Spla20</td>
+    <td>Spla21</td>
+    <td>Spla22</td>
+    <td>Spla23</td>
+  </tr>
+ <tr>
+<!--###To Search and Replace: need to iterate and add in data - need to create a new variable to hold this value###-->
+<!--### Need to add a button to open the day's forecast ###-->
+    <td>Brelades</td>
+    <td>Brel00</td>
+    <td>Brel01</td>
+    <td>Brel02</td>
+    <td>Brel03</td>
+    <td>Brel04</td>
+    <td>Brel05</td>
+    <td>Brel06</td>
+    <td>Brel07</td>
+    <td>Brel08</td>
+    <td>Brel09</td>
+    <td>Brel10</td>
+    <td>Brel11</td>
+    <td>Brel12</td>
+    <td>Brel13</td>
+    <td>Brel14</td>
+    <td>Brel15</td>
+    <td>Brel16</td>
+    <td>Brel17</td>
+    <td>Brel18</td>
+    <td>Brel19</td>
+    <td>Brel20</td>
+    <td>Brel21</td>
+    <td>Brel22</td>
+    <td>Brel23</td>
+  </tr>
+ <tr>
+<!--###To Search and Replace: need to iterate and add in data - need to create a new variable to hold this value###-->
+<!--### Need to add a button to open the day's forecast ###-->
+    <td>Plemont</td>
+    <td>Plem00</td>
+    <td>Plem01</td>
+    <td>Plem02</td>
+    <td>Plem03</td>
+    <td>Plem04</td>
+    <td>Plem05</td>
+    <td>Plem06</td>
+    <td>Plem07</td>
+    <td>Plem08</td>
+    <td>Plem09</td>
+    <td>Plem10</td>
+    <td>Plem11</td>
+    <td>Plem12</td>
+    <td>Plem13</td>
+    <td>Plem14</td>
+    <td>Plem15</td>
+    <td>Plem16</td>
+    <td>Plem17</td>
+    <td>Plem18</td>
+    <td>Plem19</td>
+    <td>Plem20</td>
+    <td>Plem21</td>
+    <td>Plem22</td>
+    <td>Plem23</td>
+  </tr>
+</tbody></table>
 
+<h1>fa fa-arrow-circle-up</h1>
 
-</body>
-</html>
+<i class="fa fa-arrow-circle-up"></i>
+<i class="fa fa-arrow-circle-up fa-rotate-90" style="font-size:24px"></i>
+<i class="fa fa-arrow-circle-up fa-rotate-45" style="font-size:36px"></i>
+<i class="fa fa-arrow-circle-up fa-rotate-180" style="font-size:48px;color:red"></i>
+<img id="image_canv" src="n.png" rotate="235">
+<img id="image_canv" src="2.png" rotate="235">
+<img id="image_canv" src="1.png" rotate="235">
+<img src="2.png" style="transform:rotate(15deg);">
+<br>
+
+</div></div></div></div></body></html>
+<img src="Wind.png" style="transform:rotate(75deg);">
+<img src="Swell.png" style="transform:rotate(235deg);">
