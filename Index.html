@@ -47,10 +47,10 @@ table, th, td {
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
     <a href="#" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Overview</a>
-    <a href="SurfSpots.Html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Surf Spots</a>
-    <a href="SurfForecastData.Html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  10 day Forecast</a>
-    <a href="https://www.google.com/maps/d/viewer?mid=1NVx2G8wJA_tSUM1dZhCtz6PFdWUHFhM&hl=en&femb=1&ll=49.21270053564597%2C-2.171370250000013&z=13" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  in Maps</a>
-<a href="Days\Day1.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Day1</a>
+    <a href="#SurfSpots" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Surf Spots</a>
+    <a href="#Forecast" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  10 day Forecast</a>
+    <a href="#Maps" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  in Maps</a>
+    <a href="#Day1" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Day1</a>
     
   </div>
 </nav>
@@ -118,8 +118,6 @@ table, th, td {
     </div>
   </div>
 
-<h4 style="background-color:Red;">Tides   </h1>
-<h4 style="background-color:Blue;">Swell</h1>
 <table style="width:100%">
   <tr>
 <td colspan="10"> 
@@ -135,24 +133,19 @@ new Chart("myChart", {
     datasets: [{
 <!--###To Search and Replace: need to iterate and add in data - need to create a new variable to hold this value###--> 
       data: [2,2.8,4.6,6.9,9.1,10.4,10.9,10,8.2,6,3.9,2.1,1.3,1.3,2.9,5.3,7.9,10,10.8,10.5,9.1,7,4.7,2.7,1.4,1.1,2.2,4.6,7.5,10,11.4,11.8,10.5,8.3,5.7,3.2,1.3,0.5,0.6,2.7,5.7,8.7,10.9,12,11.2,9.3,6.8,4.2,2,0.8,1.2,2.8,5.5,8.5,10.9,12,11.5,9.9,7.5,4.8,2.3,0.6,0,1,3.5,6.7,9.7,11.5,11.9,10.7,8.5,5.9,3.2,1.3,0.3,0.5,2.7,5.9,9.1,11.4,12,11.2,9.3,6.7,4,1.7,0.3,0.1,1.7,4.6,7.8,10.5,11.8,11.6,10.1,7.7,5,2.6,0.9,0,1.1,3.7,6.9,9.9,11.7,11.8,10.6,8.5,5.8,3.3,1.3,0.4,0.5,2.6,5.7,8.8,10.9,12,11.1,9.3,6.8,4.2,2.1,1,1.2,2.7,5.3,8.1,10.3,11.3,10.6,9.2,7.1,4.8,2.8,1.4,1,2.1,4.3,7,9.4,10.7,10.8,9.7,7.8,5.7,3.6,2.2,1.6,2.6,4.2,6.5,8.7,10.1,10,9.3,7.8,6,4.2,2.8,2,2.3,3.6,5.7,7.8,9.4,10,9.5,8.3,6.7,5,3.5,2.6,2.1,3,4.8,6.8,8.4,9.3,8.8,8.1,6.8,5.4,4.2,3.3,3,3.6,4.9,6.5,7.9,8.8,8.9,8.3,7.3,6,4.8,3.9,3.5,4.2,4.9,6,7.1,7.9,8,7.8,7.2,6.3,5.4,4.6,4.2,4.1,4.6,5.5,6.6,7.5,8,7.9,7.5,6.8,5.9,5.1,4.6,4.3,4.2,4.7,5.5,6.4,7.1,7.4,6.9,6.6,6.2,5.7,5.2,4.9,5,5.2,5.7,6.3,6.9],
-      borderColor: "red",
-      fill: false
+      borderColor: "red", label: "Tide (m)", fill: false
      },{
 <!--###To Search and Replace: need to iterate and add in data - need to create a new variable to hold this value###--> 
-      data: [0.8,0.82,0.84,0.86,0.93,1.0,1.07,1.13,1.2,1.26,1.31,1.37,1.42,1.34,1.25,1.17,1.04,0.92,0.79,0.79,0.78,0.78,0.83,0.87,0.92,0.94,0.96,0.98,0.97,0.95,0.94,0.92,0.9,0.88,0.86,0.83,0.81,0.79,0.77,0.75,0.74,0.72,0.71,0.7,0.68,0.67,0.66,0.65,0.64,0.64,0.65,0.65,0.67,0.68,0.7,0.73,0.76,0.79,0.8,0.81,0.82,0.81,0.8,0.79,0.75,0.71,0.67,0.64,0.6,0.57,0.6,0.63,0.66,0.67,0.68,0.69,0.67,0.66,0.64,0.63,0.63,0.62,0.61,0.59,0.58,0.57,0.55,0.54,0.53,0.52,0.51,0.51,0.52,0.52,0.53,0.55,0.56,0.57,0.58,0.59,0.62,0.64,0.67,0.71,0.74,0.78,0.82,0.86,0.9,0.92,0.93,0.95,0.97,0.99,1.01,1.02,1.03,1.04,1.05,1.05,1.06,1.06,1.06,1.06,1.04,1.01,0.99,0.99,0.99,0.99,0.97,0.95,0.93,0.9,0.87,0.84,0.86,0.89,0.91,0.98,1.04,1.11,1.13,1.16,1.18,1.17,1.17,1.16,1.14,1.13,1.11,1.12,1.14,1.15,1.11,1.07,1.03,0.99,0.96,0.92,0.9,0.87,0.85,0.86,0.87,0.88,0.93,0.98,1.03,1.05,1.06,1.08,1.14,1.19,1.25,1.38,1.5,1.63,1.66,1.7,1.73,1.66,1.59,1.52,1.49,1.45,1.42,1.47,1.51,1.56,1.64,1.71,1.79,1.86,1.93,2.0,2.14,2.27,2.41,2.3,2.19,2.08,2.18,2.29,2.39,2.52,2.64,2.77,2.69,2.62,2.54,2.47,2.39,2.32,2.27,2.21,2.16,2.12,2.09,2.05,2.0,1.96,1.91,1.95,1.99,2.03,2.08,2.13,2.18,2.17,2.16,2.15,2.13,2.11,2.09,2.02,1.95,1.88,1.8,1.72],
-      borderColor: "blue",
+      data: [2.624672,2.6902888,2.7559056,2.8215224,3.0511812,3.280840,3.5104988,3.7073492,3.937008,4.1338584,4.2979004,4.4947508,4.6587928,4.3963256,4.1010500,3.8385828,3.4120736,3.0183728,2.5918636,2.5918636,2.5590552,2.5590552,2.7230972,2.8543308,3.0183728,3.0839896,3.1496064,3.2152232,3.1824148,3.1167980,3.0839896,3.0183728,2.952756,2.8871392,2.8215224,2.7230972,2.6574804,2.5918636,2.5262468,2.4606300,2.4278216,2.3622048,2.3293964,2.296588,2.2309712,2.1981628,2.1653544,2.1325460,2.0997376,2.0997376,2.1325460,2.1325460,2.1981628,2.2309712,2.296588,2.3950132,2.4934384,2.5918636,2.624672,2.6574804,2.6902888,2.6574804,2.624672,2.5918636,2.4606300,2.3293964,2.1981628,2.0997376,1.968504,1.8700788,1.968504,2.0669292,2.1653544,2.1981628,2.2309712,2.2637796,2.1981628,2.1653544,2.0997376,2.0669292,2.0669292,2.0341208,2.0013124,1.9356956,1.9028872,1.8700788,1.8044620,1.7716536,1.7388452,1.7060368,1.6732284,1.6732284,1.7060368,1.7060368,1.7388452,1.8044620,1.8372704,1.8700788,1.9028872,1.9356956,2.0341208,2.0997376,2.1981628,2.3293964,2.4278216,2.5590552,2.6902888,2.8215224,2.952756,3.0183728,3.0511812,3.1167980,3.1824148,3.2480316,3.3136484,3.3464568,3.3792652,3.4120736,3.4448820,3.4448820,3.4776904,3.4776904,3.4776904,3.4776904,3.4120736,3.3136484,3.2480316,3.2480316,3.2480316,3.2480316,3.1824148,3.1167980,3.0511812,2.952756,2.8543308,2.7559056,2.8215224,2.9199476,2.9855644,3.2152232,3.4120736,3.6417324,3.7073492,3.8057744,3.8713912,3.8385828,3.8385828,3.8057744,3.7401576,3.7073492,3.6417324,3.6745408,3.7401576,3.7729660,3.6417324,3.5104988,3.3792652,3.2480316,3.1496064,3.0183728,2.952756,2.8543308,2.7887140,2.8215224,2.8543308,2.8871392,3.0511812,3.2152232,3.3792652,3.4448820,3.4776904,3.5433072,3.7401576,3.9041996,4.1010500,4.5275592,4.921260,5.3477692,5.4461944,5.577428,5.6758532,5.4461944,5.2165356,4.9868768,4.8884516,4.7572180,4.6587928,4.8228348,4.9540684,5.1181104,5.3805776,5.6102364,5.8727036,6.1023624,6.3320212,6.561680,7.0209976,7.4475068,7.9068244,7.545932,7.1850396,6.8241472,7.1522312,7.5131236,7.8412076,8.2677168,8.6614176,9.0879268,8.8254596,8.5958008,8.3333336,8.1036748,7.8412076,7.6115488,7.4475068,7.2506564,7.0866144,6.9553808,6.8569556,6.7257220,6.561680,6.4304464,6.2664044,6.3976380,6.5288716,6.6601052,6.8241472,6.9881892,7.1522312,7.1194228,7.0866144,7.0538060,6.9881892,6.9225724,6.8569556,6.6272968,6.3976380,6.1679792,5.905512,5.6430448],
+      borderColor: "blue", label: "Swell (ft)", fill: false
     }]
   },
   options: {
-    legend: {display: false}
+    legend: {display: true}
   }
 });
 </script>
 </td>
-<td colspan="10"> 
-<canvas id="myChart" style="width:100%;height:30%"></canvas>
-</td>
-
   </tr>
   <tr>
 <!--###To Search and Replace: need to iterate and add in data - need to create a new variable to hold this value###-->
@@ -194,186 +187,23 @@ new Chart("myChart", {
   </tr>
 </table>
 
-
+<h2 id="Maps">in Maps</h2>
 <div class="container" style='display: block; height: 600px'>
 <iframe class="responsive-iframe" src="https://www.google.com/maps/d/embed?mid=1NVx2G8wJA_tSUM1dZhCtz6PFdWUHFhM&hl=en&ehbc=2E312F&amp;t=k&z=12&amp" style="width:100%; height:100%;"></iframe>
 </div>
 
-  <div class="w3-panel">
-    <div class="w3-row-padding" style="margin:0 -16px">
-      <div class="w3-third">
-        <h5>Regions</h5>
-	</div>
-      <div class="w3-twothird">
-        <h5>Today's Forecast</h5>
-        <table class="w3-table w3-striped w3-white">
-          <tr>
-            <td><i class="fa fa-user w3-text-blue w3-large"></i></td>
-            <td>New record, over 90 views.</td>
-            <td><i>10 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-bell w3-text-red w3-large"></i></td>
-            <td>Database error.</td>
-            <td><i>15 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
-            <td>New record, over 40 users.</td>
-            <td><i>17 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-comment w3-text-red w3-large"></i></td>
-            <td>New comments.</td>
-            <td><i>25 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-bookmark w3-text-blue w3-large"></i></td>
-            <td>Check transactions.</td>
-            <td><i>28 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-laptop w3-text-red w3-large"></i></td>
-            <td>CPU overload.</td>
-            <td><i>35 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-share-alt w3-text-green w3-large"></i></td>
-            <td>New shares.</td>
-            <td><i>39 mins</i></td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-  <hr>
 
-  <div class="w3-container">
-    <h5>General Stats</h5>
-	  
-    <p>New Visitors</p>
-    <div class="w3-grey">
-      <div class="w3-container w3-center w3-padding w3-green" style="width:25%">+25%</div>
-    </div>
-
-    <p>New Users</p>
-    <div class="w3-grey">
-      <div class="w3-container w3-center w3-padding w3-orange" style="width:50%">50%</div>
-    </div>
-
-    <p>Bounce Rate</p>
-    <div class="w3-grey">
-      <div class="w3-container w3-center w3-padding w3-red" style="width:75%">75%</div>
-    </div>
-  </div>
-  <hr>
-
-  <div class="w3-container">
-    <h5>Countries</h5>
-    <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
-      <tr>
-        <td>United States</td>
-        <td>65%</td>
-      </tr>
-      <tr>
-        <td>UK</td>
-        <td>15.7%</td>
-      </tr>
-      <tr>
-        <td>Russia</td>
-        <td>5.6%</td>
-      </tr>
-      <tr>
-        <td>Spain</td>
-        <td>2.1%</td>
-      </tr>
-      <tr>
-        <td>India</td>
-        <td>1.9%</td>
-      </tr>
-      <tr>
-        <td>France</td>
-        <td>1.5%</td>
-      </tr>
-    </table><br>
-    <button class="w3-button w3-dark-grey">More Countries  <i class="fa fa-arrow-right"></i></button>
-  </div>
-  <hr>
-  <div class="w3-container">
-    <h5>Recent Users</h5>
-    <ul class="w3-ul w3-card-4 w3-white">
-      <li class="w3-padding-16">
-        <img src="/w3images/avatar2.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
-        <span class="w3-xlarge">Mike</span><br>
-      </li>
-      <li class="w3-padding-16">
-        <img src="/w3images/avatar5.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
-        <span class="w3-xlarge">Jill</span><br>
-      </li>
-      <li class="w3-padding-16">
-        <img src="/w3images/avatar6.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
-        <span class="w3-xlarge">Jane</span><br>
-      </li>
-    </ul>
-  </div>
-  <hr>
-
-  <div class="w3-container">
-    <h5>Recent Comments</h5>
-    <div class="w3-row">
-      <div class="w3-col m2 text-center">
-        <img class="w3-circle" src="/w3images/avatar3.png" style="width:96px;height:96px">
-      </div>
-      <div class="w3-col m10 w3-container">
-        <h4>John <span class="w3-opacity w3-medium">Sep 29, 2014, 9:12 PM</span></h4>
-        <p>Keep up the GREAT work! I am cheering for you!! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br>
-      </div>
-    </div>
-
-    <div class="w3-row">
-      <div class="w3-col m2 text-center">
-        <img class="w3-circle" src="/w3images/avatar1.png" style="width:96px;height:96px">
-      </div>
-      <div class="w3-col m10 w3-container">
-        <h4>Bo <span class="w3-opacity w3-medium">Sep 28, 2014, 10:15 PM</span></h4>
-        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br>
-      </div>
-    </div>
-  </div>
-  <br>
-  <div class="w3-container w3-dark-grey w3-padding-32">
-    <div class="w3-row">
-      <div class="w3-container w3-third">
-        <h5 class="w3-bottombar w3-border-green">Demographic</h5>
-        <p>Language</p>
-        <p>Country</p>
-        <p>City</p>
-      </div>
-      <div class="w3-container w3-third">
-        <h5 class="w3-bottombar w3-border-red">System</h5>
-        <p>Browser</p>
-        <p>OS</p>
-        <p>More</p>
-      </div>
-      <div class="w3-container w3-third">
-        <h5 class="w3-bottombar w3-border-orange">Target</h5>
-        <p>Users</p>
-        <p>Active</p>
-        <p>Geo</p>
-        <p>Interests</p>
-      </div>
-    </div>
-  </div>
-
-
+<h2 id="Day1">Day1</h2>
 <div class="container" style='display: block; height: 600px'>
 <iframe class="responsive-iframe" src="Days\Day1.html" style="width:100%; height:100%;"></iframe>
 </div>
 
+<h2 id="SurfSpots">Surf Spot</h2>
 <div class="container" style='display: block; height: 600px'>
 <iframe class="responsive-iframe" src="SurfSpots.Html" style="width:100%; height:100%;"></iframe>
 </div>
 
+<h2 id="Forecast">Full Surf Forecast</h2>
 <div class="container" style='display: block; height: 2600px'>
 <iframe class="responsive-iframe" src="SurfForecastData.Html" style="width:100%; height:100%;"></iframe>
 </div>
