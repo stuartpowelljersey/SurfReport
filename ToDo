@@ -37,3 +37,18 @@ See Test.html
 <!-- sort Photos for other spots and add gallery feature -->
 
 <!-- align chart with table and smoother graph for fewer data points-->
+
+
+#----------------Powershell------------------
+$day = Get-Content -Path "C:\Users\PowellS\OneDrive - Government of Jersey\personal\Surfing\Report\ReportPSDriven\Day.html"
+$userdata = Import-CSV "C:\Users\PowellS\OneDrive - Government of Jersey\personal\Surfing\Report\ReportPSDriven\Data.csv"
+
+$userdata.time
+
+
+
+$data | ForEach-Object {$_ -replace $find, $replace} |Out-File -FilePath "C:\Users\PowellS\OneDrive - Government of Jersey\personal\Surfing\Report\ReportPSDriven\Day2.html"
+
+$goodstar = "DeepSkyBlue"
+$poorstar = "LightGreen"
+$default = "DarkSlateGrey"
