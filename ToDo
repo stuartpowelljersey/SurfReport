@@ -1,6 +1,33 @@
 <!-- Bubble for values -->
 See Test.html
 
+1 light 1.0-1.5'
+2 light 1.5-2.0'
+3 light 2.0-3.5'
+4 light 3.5-5.0'
+5 light 5.0-7.5'
+5 red 7.5+'
+
+1 blue wind <20 mph + on shore or period + >8sec
+2 blue wind <15 mph + on shore or cross + >10sec
+3 blue wind <10 mph + cross - offshore + >12 sec
+4 blue wind <10 mph + off/crossshore + >13 sec
+5 blue wind <15 mph + off/cross + > 14 sec
+
+1: if swell 1.0-1.5' then star1 = lightstar1
+   if lightstar1 + wind <20 mph + on shore or period + >8sec then star1 = bluestar1
+2: if swell 1.5-2.0' then star2 = lightstar2
+   if lightstar2 + wind <15 mph + on shore or cross + >10sec then star2 = bluestar2
+3: if swell 2.0-3.5' then star3 = lightstar3
+   if lightstar3 + wind <10 mph + cross - offshore + >12 sec then star3 = bluestar3
+4: if swell 3.5-5.0' then star4 = lightstar4
+   if lightstar4 + wind <10 mph + off/crossshore + >13 sec then star4 = bluestar4
+5: if swell 5.0-7.5' then star5 = lightstar5
+   if lightstar5 + wind <15 mph + off/cross + > 14 sec then star5 = bluestar5
+6: if swell >7.5 then stars1-5 = redstar
+
+
+
 <!-- Rotate for direction -->
 
 <!-- sort surfable days -->
