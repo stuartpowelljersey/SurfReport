@@ -1,8 +1,30 @@
 <!-- Data Structure -->
-Collection1[1].Splash = html segment
+#--------------------------------------------------------------------------------------------------
+$userdata = Import-CSV "C:\Users\PowellS\OneDrive - Government of Jersey\personal\Surfing\Report\ReportPSDriven\Data.csv"
+$DayHourCondition = Get-Content "C:\Users\PowellS\OneDrive - Government of Jersey\personal\Surfing\Report\ReportPSDriven\DayHourCondition.txt"
+$SpotHourCondition = Get-Content "C:\Users\PowellS\OneDrive - Government of Jersey\personal\Surfing\Report\ReportPSDriven\SpotHourCondition.txt"
 
+foreach ($u in $userdata)
+{
+$DayHourCondition = Get-Content "C:\Users\PowellS\OneDrive - Government of Jersey\personal\Surfing\Report\ReportPSDriven\DayHourCondition.txt"
+$DayHourCondition = $DayHourCondition.replace("%mph%" , $u.windspeed)
+$DayHourCondition = $DayHourCondition.replace("%winddir%" , $u.winddirection+180)
+$DayHourCondition = $DayHourCondition.replace("%feet%" , [math]::Round(([float]$userdata[0].swellheight*3.28084) * 2, [MidpointRounding]::AwayFromZero) / 2)
+$DayHourCondition = $DayHourCondition.replace("%swelldir%" , $u.swelldirection+180)
+$DayHourCondition = $DayHourCondition.replace("%period%" , $u.windspeed)
+$u.Conditions=$DayHourCondition| Out-String
+  #Write-Host "$($u.time),$($u.daynight) "
+}
 
+$userdata | ConvertTo-Html | Out-File "C:\Users\PowellS\OneDrive - Government of Jersey\personal\Surfing\Report\ReportPSDriven\data.html"
+$HTML = Get-Content "C:\Users\PowellS\OneDrive - Government of Jersey\personal\Surfing\Report\ReportPSDriven\data.html"
+$HTML = $HTML -replace "<head>" , "<head><script src=`"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/js/all.min.js`"></script>"
+$HTML = $HTML -replace "&quot;", "`""
+$HTML = $HTML -replace "&gt;", ">"
+$HTML = $HTML -replace "&lt;", "<"
+$HTML | Out-File "C:\Users\PowellS\OneDrive - Government of Jersey\personal\Surfing\Report\ReportPSDriven\data.html"
 
+#--------------------------------------------------------------------------------------------------
 
 <!-- Bubble for values -->
 See Test.html
