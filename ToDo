@@ -1,28 +1,58 @@
 <!-- Data Structure -->
 #--------------------------------------------------------------------------------------------------
-$userdata = Import-CSV "C:\Users\PowellS\OneDrive - Government of Jersey\personal\Surfing\Report\ReportPSDriven\Data.csv"
-$DayHourCondition = Get-Content "C:\Users\PowellS\OneDrive - Government of Jersey\personal\Surfing\Report\ReportPSDriven\DayHourCondition.txt"
-$SpotHourCondition = Get-Content "C:\Users\PowellS\OneDrive - Government of Jersey\personal\Surfing\Report\ReportPSDriven\SpotHourCondition.txt"
 
-foreach ($u in $userdata)
+foreach ($hour in $collectionWWMD)
 {
-$DayHourCondition = Get-Content "C:\Users\PowellS\OneDrive - Government of Jersey\personal\Surfing\Report\ReportPSDriven\DayHourCondition.txt"
-$DayHourCondition = $DayHourCondition.replace("%mph%" , $u.windspeed)
-$DayHourCondition = $DayHourCondition.replace("%winddir%" , $u.winddirection+180)
-$DayHourCondition = $DayHourCondition.replace("%feet%" , [math]::Round(([float]$userdata[0].swellheight*3.28084) * 2, [MidpointRounding]::AwayFromZero) / 2)
-$DayHourCondition = $DayHourCondition.replace("%swelldir%" , $u.swelldirection+180)
-$DayHourCondition = $DayHourCondition.replace("%period%" , $u.windspeed)
-$u.Conditions=$DayHourCondition| Out-String
-  #Write-Host "$($u.time),$($u.daynight) "
+$SpotHrCond = Get-Content $SpotHourConditions
+$tempswell=([math]::Round(($hour.swellheight*3.28084) * 2, [MidpointRounding]::AwayFromZero) / 2)
+$SpotHrCond = $SpotHrCond.replace("%feet%" ,$tempswell)
+#star0
+if($tempSwell -lt 1){$SpotHrCond = $SpotHrCond.replace("%star1%",$default).replace("%star2%",$default).replace("%star3%",$default).replace("%star4%",$default).replace("%star5%",$default)}
+#WildStars
+if($tempSwell -gt 7.5){$SpotHrCond = $SpotHrCond.replace("%star1%",$maxstar).replace("%star2%",$maxstar).replace("%star3%",$maxstar).replace("%star4%",$maxstar).replace("%star5%",$maxstar)}
+#Star1
+if($tempSwell -ge 1 -and $hour.windspeed -lt 20 -and $hour.swellperiod -gt 8){$SpotHrCond = $SpotHrCond.replace("%star1%",$goodstar)}`
+elseif($tempSwell -gt 1){$SpotHrCond = $SpotHrCond.replace("%star1%",$poorstar)}
+else{$SpotHrCond = $SpotHrCond.replace("%star1%",$default)}
+#Star2
+if($tempSwell -ge 1.5 -and $hour.windspeed -lt 15 -and $hour.swellperiod -gt 10){$SpotHrCond = $SpotHrCond.replace("%star2%",$goodstar)}`
+elseif($tempSwell -gt 1.5){$SpotHrCond = $SpotHrCond.replace("%star2%",$poorstar)}
+else{$SpotHrCond = $SpotHrCond.replace("%star2%",$default)}
+#Start3
+if($tempSwell -ge 2 -and $hour.windspeed -lt 10 -and $hour.swellperiod -gt 12){$SpotHrCond = $SpotHrCond.replace("%star3%",$goodstar)}`
+elseif($tempSwell -gt 2){$SpotHrCond = $SpotHrCond.replace("%star3%",$poorstar)}
+else{$SpotHrCond = $SpotHrCond.replace("%star3%",$default)}
+#Star4
+if($tempSwell -ge 3.5 -and $hour.windspeed -lt 10 -and $hour.swellperiod -gt 13){$SpotHrCond = $SpotHrCond.replace("%star4%",$goodstar)}`
+elseif($tempSwell -gt 3.5){$SpotHrCond = $SpotHrCond.replace("%star4%",$poorstar)}
+else{$SpotHrCond = $SpotHrCond.replace("%star4%",$default)}
+#Star5
+if($tempSwell -ge 5 -and $hour.windspeed -lt 5 -and $hour.swellperiod -gt 14){$SpotHrCond = $SpotHrCond.replace("%star5%",$goodstar)}`
+elseif($tempSwell -gt 3.5){$SpotHrCond = $SpotHrCond.replace("%star5%",$poorstar)}
+else{$SpotHrCond = $SpotHrCond.replace("%star5%",$default)}
+$hour.Splash=$SpotHrCond| Out-String
 }
 
-$userdata | ConvertTo-Html | Out-File "C:\Users\PowellS\OneDrive - Government of Jersey\personal\Surfing\Report\ReportPSDriven\data.html"
-$HTML = Get-Content "C:\Users\PowellS\OneDrive - Government of Jersey\personal\Surfing\Report\ReportPSDriven\data.html"
-$HTML = $HTML -replace "<head>" , "<head><script src=`"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/js/all.min.js`"></script>"
-$HTML = $HTML -replace "&quot;", "`""
-$HTML = $HTML -replace "&gt;", ">"
-$HTML = $HTML -replace "&lt;", "<"
-$HTML | Out-File "C:\Users\PowellS\OneDrive - Government of Jersey\personal\Surfing\Report\ReportPSDriven\data.html"
+
+
+$collectionWWMD | ConvertTo-Html -property $filterReport -Head $Header |`
+ForEach-Object {
+$_ -replace "&quot;","`"" `
+-replace "&gt;", ">"`
+-replace "&lt;","<"`
+-replace "</table>", "</table>`n $now"
+}|`
+Out-File "C:\Users\PowellAdmin\OneDrive\Documents\Surfing\SurfReport\HTMLDocs\SurfForecastDatatemp.html"
+
+
+
+get-content "C:\Users\PowellAdmin\OneDrive\Documents\Surfing\SurfReport\HTMLDocs\SurfForecastDatatemp.html" |`
+foreach `
+{if($_ -like "*<td>Night*"){$_ -replace "<tr>", "<tr bgcolor=silver>"}`
+ else{$_}}|`
+ out-file "C:\Users\PowellAdmin\OneDrive\Documents\Surfing\SurfReport\HTMLDocs\SurfForecastData.html"
+
+#--------------------------------------------------------------------------------------------------
 
 #--------------------------------------------------------------------------------------------------
 
