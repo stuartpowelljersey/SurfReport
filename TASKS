@@ -1,38 +1,43 @@
 <!-- Data Structure -->
 #--------------------------------------------------------------------------------------------------
 
+#Brels
+$collectionWWMD.brelades
+
 foreach ($hour in $collectionWWMD)
 {
-$SpotHrCond = Get-Content $SpotHourConditions
-$tempswell=([math]::Round(($hour.swellheight*3.28084) * 2, [MidpointRounding]::AwayFromZero) / 2)
-$SpotHrCond = $SpotHrCond.replace("%feet%" ,$tempswell)
-#star0
-if($tempSwell -lt 1){$SpotHrCond = $SpotHrCond.replace("%star1%",$default).replace("%star2%",$default).replace("%star3%",$default).replace("%star4%",$default).replace("%star5%",$default)}
-#WildStars
-if($tempSwell -gt 7.5){$SpotHrCond = $SpotHrCond.replace("%star1%",$maxstar).replace("%star2%",$maxstar).replace("%star3%",$maxstar).replace("%star4%",$maxstar).replace("%star5%",$maxstar)}
-#Star1
-if($tempSwell -ge 1 -and $hour.windspeed -lt 20 -and $hour.swellperiod -gt 8){$SpotHrCond = $SpotHrCond.replace("%star1%",$goodstar)}`
-elseif($tempSwell -gt 1){$SpotHrCond = $SpotHrCond.replace("%star1%",$poorstar)}
-else{$SpotHrCond = $SpotHrCond.replace("%star1%",$default)}
-#Star2
-if($tempSwell -ge 1.5 -and $hour.windspeed -lt 15 -and $hour.swellperiod -gt 10){$SpotHrCond = $SpotHrCond.replace("%star2%",$goodstar)}`
-elseif($tempSwell -gt 1.5){$SpotHrCond = $SpotHrCond.replace("%star2%",$poorstar)}
-else{$SpotHrCond = $SpotHrCond.replace("%star2%",$default)}
-#Start3
-if($tempSwell -ge 2 -and $hour.windspeed -lt 10 -and $hour.swellperiod -gt 12){$SpotHrCond = $SpotHrCond.replace("%star3%",$goodstar)}`
-elseif($tempSwell -gt 2){$SpotHrCond = $SpotHrCond.replace("%star3%",$poorstar)}
-else{$SpotHrCond = $SpotHrCond.replace("%star3%",$default)}
-#Star4
-if($tempSwell -ge 3.5 -and $hour.windspeed -lt 10 -and $hour.swellperiod -gt 13){$SpotHrCond = $SpotHrCond.replace("%star4%",$goodstar)}`
-elseif($tempSwell -gt 3.5){$SpotHrCond = $SpotHrCond.replace("%star4%",$poorstar)}
-else{$SpotHrCond = $SpotHrCond.replace("%star4%",$default)}
-#Star5
-if($tempSwell -ge 5 -and $hour.windspeed -lt 5 -and $hour.swellperiod -gt 14){$SpotHrCond = $SpotHrCond.replace("%star5%",$goodstar)}`
-elseif($tempSwell -gt 3.5){$SpotHrCond = $SpotHrCond.replace("%star5%",$poorstar)}
-else{$SpotHrCond = $SpotHrCond.replace("%star5%",$default)}
-$hour.Splash=$SpotHrCond| Out-String
+    foreach ($spot in $spotsdetail)
+    {
+    $SpotHrCond = get-content $SpotHourCondition
+    $tempswell=([math]::Round(([float]$hour.swellheight*3.28084*$spot.SizeEstimateMultiplier) * 2, [MidpointRounding]::AwayFromZero) / 2)
+    $SpotHrCond = $SpotHrCond.replace("%feet%" ,$tempswell)
+    #star0
+    if($tempSwell -lt 1){$SpotHrCond = $SpotHrCond.replace("%star1%",$default).replace("%star2%",$default).replace("%star3%",$default).replace("%star4%",$default).replace("%star5%",$default)}
+    #WildStars
+    if($tempSwell -gt 7.5){$SpotHrCond = $SpotHrCond.replace("%star1%",$maxstar).replace("%star2%",$maxstar).replace("%star3%",$maxstar).replace("%star4%",$maxstar).replace("%star5%",$maxstar)}
+    #Star1
+    if($tempSwell -ge 1 -and $hour.windspeed -lt 20 -and $hour.swellperiod -gt 8){$SpotHrCond = $SpotHrCond.replace("%star1%",$goodstar)}`
+    elseif($tempSwell -gt 1){$SpotHrCond = $SpotHrCond.replace("%star1%",$poorstar)}
+    else{$SpotHrCond = $SpotHrCond.replace("%star1%",$default)}
+    #Star2
+    if($tempSwell -ge 1.5 -and $hour.windspeed -lt 15 -and $hour.swellperiod -gt 10){$SpotHrCond = $SpotHrCond.replace("%star2%",$goodstar)}`
+    elseif($tempSwell -gt 1.5){$SpotHrCond = $SpotHrCond.replace("%star2%",$poorstar)}
+    else{$SpotHrCond = $SpotHrCond.replace("%star2%",$default)}
+    #Start3
+    if($tempSwell -ge 2 -and $hour.windspeed -lt 10 -and $hour.swellperiod -gt 12){$SpotHrCond = $SpotHrCond.replace("%star3%",$goodstar)}`
+    elseif($tempSwell -gt 2){$SpotHrCond = $SpotHrCond.replace("%star3%",$poorstar)}
+    else{$SpotHrCond = $SpotHrCond.replace("%star3%",$default)}
+    #Star4
+    if($tempSwell -ge 3.5 -and $hour.windspeed -lt 10 -and $hour.swellperiod -gt 13){$SpotHrCond = $SpotHrCond.replace("%star4%",$goodstar)}`
+    elseif($tempSwell -gt 3.5){$SpotHrCond = $SpotHrCond.replace("%star4%",$poorstar)}
+    else{$SpotHrCond = $SpotHrCond.replace("%star4%",$default)}
+    #Star5
+    if($tempSwell -ge 5 -and $hour.windspeed -lt 5 -and $hour.swellperiod -gt 14){$SpotHrCond = $SpotHrCond.replace("%star5%",$goodstar)}`
+    elseif($tempSwell -gt 3.5){$SpotHrCond = $SpotHrCond.replace("%star5%",$poorstar)}
+    else{$SpotHrCond = $SpotHrCond.replace("%star5%",$default)}
+    $hour.($spot[0].name)=($SpotHrCond| Out-String)
+    }
 }
-
 
 
 $collectionWWMD | ConvertTo-Html -property $filterReport -Head $Header |`
