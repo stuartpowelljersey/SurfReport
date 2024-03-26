@@ -1,5 +1,14 @@
 <!-- Data Structure -->
 #--------------------------------------------------------------------------------------------------
+Create the html template for each with static data in section above 
+
+Create new array for Days (21 rows:spots) (24 cols:hrs) to contain day summary for use in index and each day report
+array to have Days (vert) and report for each hour (hori)
+
+Create new array for Spots (10 rows:days) (24 cols:hrs)  to contain day summary for use in index and each spot report
+array to have spots (vert) and report for each hour (hori)
+
+#--------------------------------------------------------------------------------------------------
 
 $spotsdetail = Import-CSV "C:\Users\****************\personal\Surfing\Report\ReportPSDriven\Spots.csv"
 foreach ($Spot in $spotsdetail)
